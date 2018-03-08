@@ -26,10 +26,6 @@ class App extends Component {
         const { trips } = this.state;
         this.setState({ trips: [...trips, trip] });
     })
-
-  const { trips } = this.state;
-  const id = Math.floor(( 1 + Math.random()) * 0x1000).toString()
-  this.setState({ trips: [...trips, { id, name }] });
   }
 
   updateTrip = (id) => {
@@ -51,7 +47,6 @@ class App extends Component {
         const { trips } = this.state;
         this.setState({ trips: trips.filter( t => t.id !== id ) })
       })
-
   }
 
   render() {
@@ -66,6 +61,6 @@ class App extends Component {
       </div>
     );
   }
-
+}
 
 export default App;
