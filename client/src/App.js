@@ -29,7 +29,7 @@ class App extends Component {
   }
 
   updateTrip = (id) => {
-    fetch('/api/trips/${id}', { method: 'PUT'})
+    fetch(`/api/trips/${id}`, { method: 'PUT'})
       .then( res => res.json() )
       .then( trip => {
         let trips = this.state.trips.map( t => {
@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   deleteTrip = (id) => {
-    fetch('/api/trips/${id}', { method: 'DELETE'})
+    fetch(`/api/trips/${id}`, { method: 'DELETE'})
       .then( () => {
         const { trips } = this.state;
         this.setState({ trips: trips.filter( t => t.id !== id ) })
