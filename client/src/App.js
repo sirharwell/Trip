@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TripForm from './components/TripForm';
-import TripList from './components/TripList';
 
 
 
