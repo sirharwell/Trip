@@ -5,7 +5,7 @@ class Api::TripsController < ApplicationController
 
   def create 
     trip = Trip.new(trip_params)
-    if trip
+    if trip.save
       render json: trip 
     else 
       render json: { errors: trip.errors}, status: unprocessable_entity
