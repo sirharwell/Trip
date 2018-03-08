@@ -5,5 +5,6 @@ import 'materialize-css/dist/css/materialize.min.css';
 
 
 ReactDOM.render(
-  <App />, 
-  document.getElementById('root'));
+  <App />,
+  document.getElementById('root')
+);
