@@ -1,18 +1,33 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TripForm from './components/TripForm';
+import TripList from './components/TripList';
+
+
 
 class App extends Component {
+  state = { trips: [] }
+
+  componentDidMount() {
+  }
+
+  addTrip = (name) => {
+  }
+
+  updateTrip = (id) => {
+  }
+
+  deleteTrip = (id) => {
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
+        <TripForm addTrip={this.addTrip} />
+        <TripList
+          trips={this.state.trips}
+          updateTrip={this.updateTrip}
+          deleteTrip={this.deleteTrip}
+        />
       </div>
     );
   }
