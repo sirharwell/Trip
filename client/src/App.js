@@ -7,14 +7,14 @@ class App extends Component {
   state = { trips: [] }
 
   componentDidMount() {
-    fetch('/api/items')
+    fetch('/api/trips')
       .then( res => res.json() )
       .then( trips => this.setState({ trips }) )
   }
 
   addTrip = (name) => {
     let trip = { name };
-    fetch('/api/items', {
+    fetch('/api/trips', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ class App extends Component {
       .then( trip => {
         let trips = this.state.trips.map( t => {
           if (t.id === id)
-            return item
+            return trip
           return t;
       })
      this.setState({ trips });
