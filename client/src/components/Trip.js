@@ -1,4 +1,4 @@
-import React from 'React' 
+import React from 'react' 
 
 const styles = {
   complete: {
@@ -8,7 +8,7 @@ const styles = {
   pointer: {cursor: 'pointer'}
 }
 
-const Trip = ({id, complete, name, updateTrip, deleteTrip }) (
+const Trip = ({id, complete, name, updateTrip, deleteTrip }) => (
   <div className="col s12">
     <div className="col m8">
       <div style={ complete ? styles.complete : {} } className="center">
