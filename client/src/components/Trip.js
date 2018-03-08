@@ -1,8 +1,8 @@
-import React from 'react' 
+import React from 'react'
 
 const styles = {
   complete: {
-    textDecoration: 'line-through', 
+    textDecoration: 'line-through',
     color: 'grey'
   },
   pointer: {cursor: 'pointer'}
@@ -16,7 +16,7 @@ const Trip = ({id, complete, name, updateTrip, deleteTrip }) => (
       </div>
   </div>
   <div className="col m2">
-    <input 
+    <input
       id={`trip-${id}`}
       type="checkbox"
       defaultChecked={complete}
@@ -30,4 +30,4 @@ const Trip = ({id, complete, name, updateTrip, deleteTrip }) => (
   </div>
   )
 
-  export default Trip; 
+  export default Trip;

@@ -13,7 +13,7 @@ class TripForm extends React.Component {
     this.setState({ name: '' })
   }
 
-  
+
 
   render() {
     return (

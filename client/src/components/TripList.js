@@ -3,7 +3,7 @@ import Trip from './Trip';
 
 const TripList = ({ trips, updateTrip, deleteTrip }) => (
   <div className="row">
-    { trips.map( trip => 
+    { trips.map( trip =>
         <Trip
           key={trip.id}
           {...trip}
