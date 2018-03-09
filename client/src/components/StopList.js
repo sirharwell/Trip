@@ -1,5 +1,5 @@
 import React from 'react';
-import Trip from './Stop';
+import Stop from './Stop';
 
 const StopList = ({ stops, updateStop, deleteStop }) => (
   <div className="row">

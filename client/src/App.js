@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import TripForm from './components/TripForm';
 import TripList from './components/TripList';
-import StopForm from './components/StopForm';
+// import StopForm from './components/StopForm';
 import StopList from './components/StopList';
 
 
 class App extends Component {
   state = {
-    trips: []
+    trips: [],
     stops: []
    }
 
@@ -53,49 +53,49 @@ class App extends Component {
         this.setState({ trips: trips.filter( t => t.id !== id ) })
       })
     }
-      componentDidMount() {
-        fetch('/api/stops')
-          .then( res => res.json() )
-          .then( stops => this.setState({ stops }) )
-      }
+  componentDidMount() {
+    fetch('/api/stops')
+      .then( res => res.json() )
+      .then( stops => this.setState({ stops }) )
+  }
 
-      addStop = (name) => {
-        let stop = { name };
-        fetch('/api/stops', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(stop)
-        }).then( res => res.json() )
-          .then( stop => {
-            const { stops } = this.state;
-            this.setState({ stops: [...stops, stop] });
-        })
-      }
+  addStop = (name) => {
+    let stop = { name };
+    fetch('/api/stops', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(stop)
+    }).then( res => res.json() )
+      .then( stop => {
+        const { stops } = this.state;
+        this.setState({ stops: [...stops, stop] });
+    })
+  }
 
-      updateStop = (id) => {
-        fetch(`/api/stops/${id}`, { method: 'PUT'})
-          .then( res => res.json() )
-          .then( stop => {
-            let stops = this.state.stops.map( t => {
-              if (t.id === id)
-                return stop
-              return t;
-          })
-         this.setState({ stops });
-        })
-      }
+  updateStop = (id) => {
+    fetch(`/api/stops/${id}`, { method: 'PUT'})
+      .then( res => res.json() )
+      .then( stop => {
+        let stops = this.state.stops.map( t => {
+          if (t.id === id)
+            return stop
+          return t;
+      })
+      this.setState({ stops });
+    })
+  }
 
-      deleteStop = (id) => {
-        fetch(`/api/stops/${id}`, { method: 'DELETE'})
-          .then( () => {
-            const { stops } = this.state;
-            this.setState({ stops: stops.filter( t => t.id !== id ) })
-          })
-      }
-    }
+  deleteStop = (id) => {
+    fetch(`/api/stops/${id}`, { method: 'DELETE'})
+      .then( () => {
+        const { stops } = this.state;
+        this.setState({ stops: stops.filter( t => t.id !== id ) })
+      })
+  }
+    
   
 
   render() {
