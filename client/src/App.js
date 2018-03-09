@@ -8,7 +8,8 @@ import StopList from './components/StopList';
 class App extends Component {
   state = {
     trips: [],
-    stops: []
+    stops: [],
+    showingDetails: null,
    }
 
   componentDidMount() {
@@ -91,7 +92,9 @@ class App extends Component {
       })
   }
     
-  
+  handleDetails = (id) => {
+    
+  }
 
   render() {
     return (

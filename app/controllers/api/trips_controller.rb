@@ -19,7 +19,7 @@ class Api::TripsController < ApplicationController
   end  
 
   def destroy 
-    Trip.find(params[:id])
+    Trip.find(params[:id]).destroy
     render json: {message: 'Trip Delete'}
   end
 
