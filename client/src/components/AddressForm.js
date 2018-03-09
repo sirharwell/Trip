@@ -37,4 +37,4 @@ class AddressForm extends React.Component {
   }
 }
 
-export default TripForm;
+export default AddressForm;
