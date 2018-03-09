@@ -15,18 +15,9 @@ const Trip = ({id, complete, name, updateTrip, deleteTrip }) => (
         {name}
       </div>
   </div>
-  <div className="col m2">
-    <input
-      id={`trip-${id}`}
-      type="checkbox"
-      defaultChecked={complete}
-      onClick={() => updateTrip(id)}
-     />
-    <label htmlFor={`trip-${id}`}>Complete?</label>
-    </div>
     <div style={ styles.pointer } className="col m1" onClick={() => deleteTrip(id)}>
-    X
-  </div>
+      X
+    </div>
   </div>
   )
 
