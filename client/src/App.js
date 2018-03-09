@@ -172,7 +172,7 @@ class App extends Component {
               setShowing={this.setShowing}
             />
           </div>
-          { this.state.showingDetails ?
+
           { this.state.showingDetails ?
             <div className="col m4">
             <h1>Stops</h1>
