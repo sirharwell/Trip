@@ -1,8 +1,8 @@
-import React from 'react' 
- 
+import React from 'react'
+
 const styles = {
   complete: {
-    textDecoration: 'line-through', 
+    textDecoration: 'line-through',
     color: 'grey'
   },
   pointer: {cursor: 'pointer'}
@@ -21,4 +21,7 @@ const Stop = ({id, complete, name, updateStop, deleteStop, setShowingAddress }) 
   </div>
   )
 
-  export default Stop; 
+  // nevermind
+  //
+
+  export default Stop;
