@@ -4,14 +4,15 @@ import TripList from './components/TripList';
 import StopForm from './components/StopForm';
 import StopList from './components/StopList';
 import AddressForm from './components/AddressForm';
+import Address from './components/Address';
 
 class App extends Component {
   state = {
     trips: [],
     stops: [],
-    addresses: [],
+    address: {},
     showingDetails: null,
-    stopsHidden: false,
+    showingAddress: null,
    }
 
   componentDidMount() {
@@ -126,7 +127,7 @@ class App extends Component {
             return address
           return t;
       })
-     this.setState({ addresses });
+     this.setState({ address });
     })
   }
 
@@ -142,13 +143,13 @@ class App extends Component {
   showAddress = (id) => {
     fetch(`/api/addresses/${id}`)
       .then( res => res.json() )
-      .then( addresses => this.setState({ addresses }) )
+      .then( address => this.setState({ address: address[0] }) )
   }
 
 
 
   setShowing = (id) => {
-    this.setState({showingDetails: id})
+    this.setState({showingDetails: id, showingAddress: null})
     this.showStops(id)
   }
 
@@ -187,13 +188,19 @@ class App extends Component {
               />
           </div>
           : <div></div> }
-        <div className="col m4">
-        <h1>Addresses</h1>
-          <AddressForm
-            addAddress={this.addAddress}
-            address_id={this.state.showingDetails}
-          />
-        </div>
+          { this.state.showingAddress ?
+              <div className="col m4">
+              <h1>Addresses</h1>
+                <AddressForm
+                  addAddress={this.addAddress}
+                  address_id={this.state.showingDetails}
+                />
+                <Address
+                  address={this.state.address}
+                  address_id={this.state.address.id}
+                />
+              </div>
+          : <div></div> }
         </div>
       </div>
     );

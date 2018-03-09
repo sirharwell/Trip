@@ -8,13 +8,16 @@ const styles = {
   pointer: {cursor: 'pointer'}
 }
 
-const Address = ({id, complete, name, updateAddress, deleteAddress, showAddresses, setShowing }) => (
+const Address = ({id, complete, name, address, updateAddress, deleteAddress, showAddresses }) => (
   <div className="col s8">
-    <div className="col m8">
-      <div style={ styles.pointer } onClick={() => setShowing(id)}>{name}</div>
-    </div>
-    <div style={ styles.pointer } className="col m1" onClick={() => deleteAddress(id)}>
-      X
+    <div>
+      Street: {address.street}
+      <br/>
+      City: {address.city}
+      <br/>
+      State: {address.state}
+      <br/>
+      Zip: {address.zip}
     </div>
   </div>
   )
