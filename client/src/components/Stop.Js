@@ -6,7 +6,7 @@ const styles = {
     color: 'grey'
   },
   pointer: {cursor: 'pointer'}
-}
+} 
 
 const Stop = ({id, complete, name, updateStop, deleteStop }) => (
   <div className="col s12">
