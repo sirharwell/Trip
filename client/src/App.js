@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TripForm from './components/TripForm';
 import TripList from './components/TripList';
-// import StopForm from './components/StopForm';
+import StopForm from './components/StopForm';
 import StopList from './components/StopList';
 
 
@@ -53,11 +53,6 @@ class App extends Component {
         this.setState({ trips: trips.filter( t => t.id !== id ) })
       })
     }
-  componentDidMount() {
-    fetch('/api/stops')
-      .then( res => res.json() )
-      .then( stops => this.setState({ stops }) )
-  }
 
   addStop = (name) => {
     let stop = { name };
