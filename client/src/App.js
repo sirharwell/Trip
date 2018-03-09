@@ -156,7 +156,7 @@ class App extends Component {
     this.setState({showingDetails: id})
     this.showAddresses(id)
   }
-
+ 
   render() {
     return (
       <div className="container">
