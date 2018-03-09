@@ -3,7 +3,7 @@ import TripForm from './components/TripForm';
 import TripList from './components/TripList';
 import StopForm from './components/StopForm';
 import StopList from './components/StopList';
-
+import AddressForm from './components/AddressForm';
 
 class App extends Component {
   state = {
@@ -156,7 +156,6 @@ class App extends Component {
     this.setState({showingDetails: id})
     this.showAddresses(id)
   }
- 
   render() {
     return (
       <div className="container">
@@ -172,7 +171,6 @@ class App extends Component {
               setShowing={this.setShowing}
             />
           </div>
-
           { this.state.showingDetails ?
             <div className="col m4">
             <h1>Stops</h1>
