@@ -98,7 +98,7 @@ class App extends Component {
       .then( res => res.json() )
       .then( stops => this.setState({ stops }) )
   }
-    
+
   setShowing = (id) => {
     this.setState({showingDetails: id})
     this.showStops(id)
@@ -121,9 +121,9 @@ class App extends Component {
           </div>
           <div className="col m6">
           <h1>Stops</h1>
-            <StopForm 
+            <StopForm
               addStop={this.addStop}
-              trip_id={this.state.showingDetails} 
+              trip_id={this.state.showingDetails}
             />
             <StopList
               stops={this.state.stops}

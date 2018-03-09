@@ -3,7 +3,7 @@ import Stop from './Stop';
 
 const StopList = ({ stops, updateStop, deleteStop }) => (
   <div className="row">
-    { stops.map( stop => 
+    { stops.map( stop =>
         <Stop
           key={stop.id}
           {...stop}
