@@ -173,7 +173,6 @@ class App extends Component {
             />
           </div>
           { this.state.showingDetails ?
-          { this.state.showingDetails ?
             <div className="col m4">
             <h1>Stops</h1>
               <StopForm
