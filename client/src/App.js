@@ -9,6 +9,7 @@ class App extends Component {
   state = {
     trips: [],
     stops: [],
+    addresses: [],
     showingDetails: null,
     stopsHidden: false,
    }
@@ -100,15 +101,61 @@ class App extends Component {
       .then( stops => this.setState({ stops }) )
   }
 
+  addAddress = (name) => {
+    let address = { name };
+    fetch('/api/addresses', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(address)
+    }).then( res => res.json() )
+      .then( address => {
+        const { addresses } = this.state;
+        this.setState({ addresses: [...addresses, address] });
+    })
+  }
+
+  updateAddress = (id) => {
+    fetch(`/api/addresses/${id}`, { method: 'PUT'})
+      .then( res => res.json() )
+      .then( address => {
+        let addresses = this.state.addresses.map( t => {
+          if (t.id === id)
+            return address
+          return t;
+      })
+     this.setState({ addresses });
+    })
+  }
+
+  deleteAddress = (id) => {
+    fetch(`/api/addresses/${id}`, { method: 'DELETE'})
+      .then( () => {
+        const { addresses } = this.state;
+        this.setState({ addresses: addresses.filter( t => t.id !== id ) })
+      })
+    this.setState({showingDetails: false})
+    }
+
+  showAddresses = (id) => {
+    fetch(`/api/addresses/${id}`)
+      .then( res => res.json() )
+      .then( addresses => this.setState({ addresses }) )
+  }
+
+
+
   setShowing = (id) => {
     this.setState({showingDetails: id})
     this.showStops(id)
   }
 
-  
-        
-      
-
+  setShowing = (id) => {
+    this.setState({showingDetails: id})
+    this.showAddresses(id)
+  }
 
   render() {
     return (
@@ -125,12 +172,16 @@ class App extends Component {
               setShowing={this.setShowing}
             />
           </div>
+<<<<<<< HEAD
           { this.state.showingDetails ? 
+=======
+          { this.state.showingDetails ?
+>>>>>>> Addressi
             <div className="col m4">
             <h1>Stops</h1>
-              <StopForm 
+              <StopForm
                 addStop={this.addStop}
-                trip_id={this.state.showingDetails} 
+                trip_id={this.state.showingDetails}
               />
               <StopList
                 stops={this.state.stops}
@@ -139,6 +190,18 @@ class App extends Component {
               />
           </div>
           : <div></div> }
+        <div className="col m4">
+        <h1>Addresses</h1>
+          <AddressForm
+            addAddress={this.addAddress}
+            address_id={this.state.showingDetails}
+          />
+          <AddressList
+            addresses={this.state.addresses}
+            updateAddress={this.updateAddress}
+            deleteAddress={this.deleteAddress}
+          />
+        </div>
         </div>
       </div>
     );
