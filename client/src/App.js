@@ -125,31 +125,6 @@ class App extends Component {
               setShowing={this.setShowing}
             />
           </div>
-<<<<<<< HEAD
-          <div className="col m4">
-          <h1>Stops</h1>
-            <StopForm
-              addStop={this.addStop}
-              trip_id={this.state.showingDetails}
-            />
-            <StopList
-              stops={this.state.stops}
-              updateStop={this.updateStop}
-              deleteStop={this.deleteStop}
-            />
-          </div>
-          <div className="col m4">
-          <h1>Addresses</h1>
-            <StopForm
-              addStop={this.addStop}
-              trip_id={this.state.showingDetails}
-            />
-            <StopList
-              stops={this.state.stops}
-              updateStop={this.updateStop}
-              deleteStop={this.deleteStop}
-            />
-=======
           { this.state.showingDetails ? 
             <div className="col m4">
             <h1>Stops</h1>
@@ -162,7 +137,6 @@ class App extends Component {
                 updateStop={this.updateStop}
                 deleteStop={this.deleteStop}
               />
->>>>>>> app.js update, and addresses ctrlr
           </div>
           : <div></div> }
         </div>
