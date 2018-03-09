@@ -1,7 +1,7 @@
 import React from 'react';
 import Stop from './Stop';
 
-const StopList = ({ stops, updateStop, deleteStop }) => (
+const StopList = ({ stops, updateStop, deleteStop, setShowingAddress }) => (
   <div className="row">
     { stops.map( stop =>
         <Stop
@@ -9,6 +9,7 @@ const StopList = ({ stops, updateStop, deleteStop }) => (
           {...stop}
           updateStop={updateStop}
           deleteStop={deleteStop}
+          setShowingAddress={setShowingAddress}
         />
       )
     }

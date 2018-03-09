@@ -139,7 +139,7 @@ class App extends Component {
     this.setState({showingDetails: false})
     }
 
-  showAddresses = (id) => {
+  showAddress = (id) => {
     fetch(`/api/addresses/${id}`)
       .then( res => res.json() )
       .then( addresses => this.setState({ addresses }) )
@@ -182,7 +182,7 @@ class App extends Component {
                 stops={this.state.stops}
                 updateStop={this.updateStop}
                 deleteStop={this.deleteStop}
-                setShowingAddresses={this.setShowingAddress}
+                setShowingAddress={this.setShowingAddress}
               />
           </div>
           : <div></div> }
