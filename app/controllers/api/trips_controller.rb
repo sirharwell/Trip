@@ -8,7 +8,7 @@ class Api::TripsController < ApplicationController
     if trip.save
       render json: trip 
     else 
-      render json: { errors: trip.errors}, status: unprocessable_entity
+      render json: { errors: trip.errors}, status: 422
     end
   end 
 

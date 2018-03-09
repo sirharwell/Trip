@@ -5,19 +5,19 @@ class Api::StopsController < ApplicationController
     render json: Stop.where(trip_id: @trip.id)
   end 
 
-  def create 
-    stop = Stop.new(trip_params)
+  def create
+    stop = Stop.new(stop_params)
     if stop.save
-      render json: trip 
+      render json: stop 
     else 
-      render json: { errors: trip.errors}, status: unprocessable_entity
+      render json: { errors: stop.errors}, status: 422
     end
   end 
 
   def update 
     stop = Stop.find(params[:id])
     stop.update(name: params[:name])
-    render json: trip 
+    render json: stop 
   end  
 
   def destroy 
@@ -26,13 +26,12 @@ class Api::StopsController < ApplicationController
   end
 
   private
-  
+
   def set_trip
-    @trip = Trip.find(params[:trip_id])
+    @trip = Trip.find(params[:id])
   end
 
   def stop_params 
-    params.require(:trip).permit(:name, :complete)
+    params.require(:stop).permit(:name, :trip_id)
   end 
-end 
 end

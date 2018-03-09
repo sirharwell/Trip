@@ -9,8 +9,8 @@ class StopForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addStop(this.state.name);
-    this.setState({ name: '' })
+    this.props.addStop(this.state.name, this.props.trip_id);
+    this.setState({ name: '', trip_id: this.props.trip_id})
   }
 
   

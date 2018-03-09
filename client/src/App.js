@@ -53,10 +53,11 @@ class App extends Component {
         const { trips } = this.state;
         this.setState({ trips: trips.filter( t => t.id !== id ) })
       })
+    this.setState({showingDetails: false})
     }
 
-  addStop = (name) => {
-    let stop = { name };
+  addStop = (name, trip_id) => {
+    let stop = { name, trip_id };
     fetch('/api/stops', {
       method: 'POST',
       headers: {
@@ -91,20 +92,46 @@ class App extends Component {
         this.setState({ stops: stops.filter( t => t.id !== id ) })
       })
   }
+
+  showStops = (id) => {
+    fetch(`/api/stops/${id}`)
+      .then( res => res.json() )
+      .then( stops => this.setState({ stops }) )
+  }
     
-  handleDetails = (id) => {
-    
+  setShowing = (id) => {
+    this.setState({showingDetails: id})
+    this.showStops(id)
   }
 
   render() {
     return (
       <div className="container">
-        <TripForm addTrip={this.addTrip} />
-        <TripList
-          trips={this.state.trips}
-          updateTrip={this.updateTrip}
-          deleteTrip={this.deleteTrip}
-        />
+        <div className="row">
+          <div className="col m6">
+          <h1>My Trips</h1>
+            <TripForm addTrip={this.addTrip} />
+            <TripList
+              trips={this.state.trips}
+              updateTrip={this.updateTrip}
+              deleteTrip={this.deleteTrip}
+              showStops={this.showStops}
+              setShowing={this.setShowing}
+            />
+          </div>
+          <div className="col m6">
+          <h1>Stops</h1>
+            <StopForm 
+              addStop={this.addStop}
+              trip_id={this.state.showingDetails} 
+            />
+            <StopList
+              stops={this.state.stops}
+              updateStop={this.updateStop}
+              deleteStop={this.deleteStop}
+            />
+          </div>
+        </div>
       </div>
     );
   }

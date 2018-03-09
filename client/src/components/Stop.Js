@@ -14,19 +14,12 @@ const Stop = ({id, complete, name, updateStop, deleteStop }) => (
       <div style={ complete ? styles.complete : {} } className="center">
         {name}
       </div>
-  </div>
-  <div className="col m2">
-    <input 
-      id={`stop-${id}`}
-      type="checkbox"
-      defaultChecked={complete}
-      onClick={() => updateStop(id)}
-     />
-    <label htmlFor={`stop-${id}`}>Complete?</label>
     </div>
-    <div style={ styles.pointer } className="col m1" onClick={() => deleteStop(id)}>
-    X
-  </div>
+    <div className="col m2">
+      <div style={ styles.pointer } className="col m1" onClick={() => deleteStop(id)}>
+        X
+      </div>
+    </div>
   </div>
   )
 
