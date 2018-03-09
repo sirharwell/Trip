@@ -108,7 +108,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col m6">
+          <div className="col m4">
           <h1>My Trips</h1>
             <TripForm addTrip={this.addTrip} />
             <TripList
@@ -119,8 +119,20 @@ class App extends Component {
               setShowing={this.setShowing}
             />
           </div>
-          <div className="col m6">
+          <div className="col m4">
           <h1>Stops</h1>
+            <StopForm
+              addStop={this.addStop}
+              trip_id={this.state.showingDetails}
+            />
+            <StopList
+              stops={this.state.stops}
+              updateStop={this.updateStop}
+              deleteStop={this.deleteStop}
+            />
+          </div>
+          <div className="col m4">
+          <h1>Addresses</h1>
             <StopForm
               addStop={this.addStop}
               trip_id={this.state.showingDetails}
