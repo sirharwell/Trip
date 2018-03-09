@@ -10,6 +10,7 @@ class App extends Component {
     trips: [],
     stops: [],
     showingDetails: null,
+    stopsHidden: false,
    }
 
   componentDidMount() {
@@ -53,7 +54,7 @@ class App extends Component {
         const { trips } = this.state;
         this.setState({ trips: trips.filter( t => t.id !== id ) })
       })
-    this.setState({showingDetails: false})
+    this.setState({showingDetails: null})
     }
 
   addStop = (name, trip_id) => {
@@ -104,6 +105,11 @@ class App extends Component {
     this.showStops(id)
   }
 
+  
+        
+      
+
+
   render() {
     return (
       <div className="container">
@@ -119,6 +125,7 @@ class App extends Component {
               setShowing={this.setShowing}
             />
           </div>
+<<<<<<< HEAD
           <div className="col m4">
           <h1>Stops</h1>
             <StopForm
@@ -142,7 +149,22 @@ class App extends Component {
               updateStop={this.updateStop}
               deleteStop={this.deleteStop}
             />
+=======
+          { this.state.showingDetails ? 
+            <div className="col m4">
+            <h1>Stops</h1>
+              <StopForm 
+                addStop={this.addStop}
+                trip_id={this.state.showingDetails} 
+              />
+              <StopList
+                stops={this.state.stops}
+                updateStop={this.updateStop}
+                deleteStop={this.deleteStop}
+              />
+>>>>>>> app.js update, and addresses ctrlr
           </div>
+          : <div></div> }
         </div>
       </div>
     );
