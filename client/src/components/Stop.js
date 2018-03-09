@@ -20,8 +20,12 @@ const Stop = ({id, complete, name, updateStop, deleteStop, setShowingAddress }) 
     </div>
   </div>
   )
+<<<<<<< HEAD:client/src/components/Stop.js
 
   // nevermind
   //
 
+=======
+  
+>>>>>>> Trip number:client/src/components/Stop.Js
   export default Stop;

@@ -174,6 +174,7 @@ class App extends Component {
           { this.state.showingDetails ?
             <div className="col m4">
             <h1>Stops</h1>
+            <h4>Trip Number: {this.state.showingDetails}</h4>
               <StopForm
                 addStop={this.addStop}
                 trip_id={this.state.showingDetails}
