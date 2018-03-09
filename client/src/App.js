@@ -152,9 +152,9 @@ class App extends Component {
     this.showStops(id)
   }
 
-  setShowing = (id) => {
-    this.setState({showingDetails: id})
-    this.showAddresses(id)
+  setShowingAddress = (id) => {
+    this.setState({showingAddress: id})
+    this.showAddress(id)
   }
   render() {
     return (
@@ -182,6 +182,7 @@ class App extends Component {
                 stops={this.state.stops}
                 updateStop={this.updateStop}
                 deleteStop={this.deleteStop}
+                setShowingAddresses={this.setShowingAddress}
               />
           </div>
           : <div></div> }
