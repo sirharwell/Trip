@@ -192,11 +192,6 @@ class App extends Component {
             addAddress={this.addAddress}
             address_id={this.state.showingDetails}
           />
-          <AddressList
-            addresses={this.state.addresses}
-            updateAddress={this.updateAddress}
-            deleteAddress={this.deleteAddress}
-          />
         </div>
         </div>
       </div>
