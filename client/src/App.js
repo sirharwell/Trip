@@ -56,7 +56,7 @@ class App extends Component {
         const { trips } = this.state;
         this.setState({ trips: trips.filter( t => t.id !== id ) })
       })
-    this.setState({showingDetails: null})
+    this.setState({showingDetails: null, showingAddress: null})
     }
 
   addStop = (name, trip_id) => {
@@ -94,6 +94,7 @@ class App extends Component {
         const { stops } = this.state;
         this.setState({ stops: stops.filter( t => t.id !== id ) })
       })
+    this.setState({showingAddress: null})
   }
 
   showStops = (id) => {
@@ -114,7 +115,7 @@ class App extends Component {
     }).then( res => res.json() )
       .then( address => {
         const { addresses } = this.state;
-        this.setState({ addresses: [...addresses, address] });
+        this.setState({ address: [...address, address] });
     })
   }
 
@@ -137,7 +138,7 @@ class App extends Component {
         const { addresses } = this.state;
         this.setState({ addresses: addresses.filter( t => t.id !== id ) })
       })
-    this.setState({showingDetails: false})
+    this.setState({showingDetails: null})
     }
 
   showAddress = (id) => {
@@ -170,16 +171,12 @@ class App extends Component {
               deleteTrip={this.deleteTrip}
               showStops={this.showStops}
               setShowing={this.setShowing}
+              showingDetails={this.state.showingDetails}
             />
           </div>
           { this.state.showingDetails ?
             <div className="col m4">
-<<<<<<< HEAD
-            <h1>Stops</h1>
-            <h4>Trip Number: {this.state.showingDetails}</h4>
-=======
               <h1>Stops</h1>
->>>>>>> app.css & assets
               <StopForm
                 addStop={this.addStop}
                 trip_id={this.state.showingDetails}
@@ -189,13 +186,14 @@ class App extends Component {
                 updateStop={this.updateStop}
                 deleteStop={this.deleteStop}
                 setShowingAddress={this.setShowingAddress}
+                showingAddress={this.state.showingAddress}
+                
               />
             </div>
           : <div></div> }
-<<<<<<< HEAD
           { this.state.showingAddress ?
               <div className="col m4">
-              <h1>Addresses</h1>
+              <h1>Address</h1>
                 <AddressForm
                   addAddress={this.addAddress}
                   address_id={this.state.showingDetails}
@@ -206,15 +204,6 @@ class App extends Component {
                 />
               </div>
           : <div></div> }
-=======
-          <div className="col m4">
-            <h1>Addresses</h1>
-            <AddressForm
-              addAddress={this.addAddress}
-              address_id={this.state.showingDetails}
-            />
-          </div>
->>>>>>> app.css & assets
         </div>
       </div>
     );
