@@ -1,3 +1,18 @@
+body {
+  background-image: url("./assets/road.png");
+  background-repeat: no-repeat;
+  height: 100vh;
+  background-size: cover
+}
+
+.container {
+  border-radius: 25px;
+  background: rgb(202, 208, 196);
+  padding: 20px; 
+  width: 200px;
+  margin-top: 30px !important;
+}
+
 .App {
   text-align: center;
 }

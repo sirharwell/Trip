@@ -162,7 +162,7 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <div className="col m4">
-          <h1>My Trips</h1>
+            <h1>My Trips</h1>
             <TripForm addTrip={this.addTrip} />
             <TripList
               trips={this.state.trips}
@@ -174,8 +174,12 @@ class App extends Component {
           </div>
           { this.state.showingDetails ?
             <div className="col m4">
+<<<<<<< HEAD
             <h1>Stops</h1>
             <h4>Trip Number: {this.state.showingDetails}</h4>
+=======
+              <h1>Stops</h1>
+>>>>>>> app.css & assets
               <StopForm
                 addStop={this.addStop}
                 trip_id={this.state.showingDetails}
@@ -186,8 +190,9 @@ class App extends Component {
                 deleteStop={this.deleteStop}
                 setShowingAddress={this.setShowingAddress}
               />
-          </div>
+            </div>
           : <div></div> }
+<<<<<<< HEAD
           { this.state.showingAddress ?
               <div className="col m4">
               <h1>Addresses</h1>
@@ -201,6 +206,15 @@ class App extends Component {
                 />
               </div>
           : <div></div> }
+=======
+          <div className="col m4">
+            <h1>Addresses</h1>
+            <AddressForm
+              addAddress={this.addAddress}
+              address_id={this.state.showingDetails}
+            />
+          </div>
+>>>>>>> app.css & assets
         </div>
       </div>
     );
