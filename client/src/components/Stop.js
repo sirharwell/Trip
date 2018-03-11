@@ -9,7 +9,7 @@ const styles = {
 } 
 
 const Stop = ({id, complete, name, updateStop, deleteStop, setShowingAddress, showingAddress }) => (
-  <div className="col s12">
+  <div className="col s8">
     <div className="col m8">
       <div style={ showingAddress === id ? styles.selected : styles.pointer } onClick={() => setShowingAddress(id)}>{name}</div>
     </div>
