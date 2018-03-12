@@ -13,6 +13,9 @@ class App extends Component {
     address: {},
     showingDetails: null,
     showingAddress: null,
+    editingAddress: null,
+    editingTrip: null,
+    editingStop: null
    }
 
   componentDidMount() {
